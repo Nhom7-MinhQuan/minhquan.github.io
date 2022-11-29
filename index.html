@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vương Tế Khan</title>
+    <title>Button Loading</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #04002b;
+            height: 100vh;
+        }
+
+        .box {
+            position: relative;
+            width: 50%;
+            height: 70%;
+            display: flex;
+            background: #000;
+            margin: 100px auto;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 200%;
+            background-image: linear-gradient(to bottom, rgb(255, 123, 0), rgb(0, 43, 197)); 
+            animation: spinner 2s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .box::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: #04002b;
+        }
+        .box h1{
+            z-index: 10;
+            font-size: 10em;
+        }
+        @keyframes spinner{
+            from{
+                transform: rotate(360deg);
+            }
+        }
+        @media screen and (max-width: 767px) {
+            .box{
+                width: 90%;
+                height: 70%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box">
+        <h1>01</h1>
+    </div>
 </body>
+
 </html>
